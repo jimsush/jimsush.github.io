@@ -1,8 +1,12 @@
-# head1
-## head2
+# 重拾twaver
+## twaver html5 - 2013/10/23
 
-1. sorted list
-2. sorted list3
+总体印象不错，漂亮，简单，性能也还不错。api与java基本一致，api doc也容易看懂，连我这种没任何web前端经验的人照着例子也能快速写出不丑的topo图来。下午折腾了一下，基本思路已经很清晰了，遇到一些问题，后续再去研究，但应该问题不大。
 
-* unsorted list1
-* unsorted list2
+后面主要是建模，前后端`RESTful`接口，数据获取与异步通知。在view层，还需要了解属性表，如何处理各种event，如何构造菜单，如何与外部div/js的交互。
+有个美工就好了，配色 ，布局，图片，交互都会舒服一些，最近面试了几个，还不知啥时候能到岗。
+
+和twaver工程师聊天，他们很多之前也不懂`html5`,web 前端，都是从`java`开始入手逐步做起来的，在游泳中学会游泳，做成现在这样子，还是很了不起的。 
+
+
+* Key words `HTML5` `twaver` `topology` `web前端`
