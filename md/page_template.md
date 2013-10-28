@@ -1,4 +1,4 @@
-# Su的记事本
+# `Su的记事本`
 
 # <span id="top1">JavaScript学习笔记</span>
 
@@ -18,6 +18,7 @@ Tags: `JavaScript`
 
   
   
-[Back to Top](#top1)
+-------------     
+  [Back to home](http://jimsush.github.io/index.html)
 
 
