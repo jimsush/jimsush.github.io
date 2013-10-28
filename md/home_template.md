@@ -1,6 +1,6 @@
 # `Su的记事本`
 
-# <span id="top1">Learn JavaScript</span>
+# <span id="http://jimsush.github.io/index.html#top1">Learn JavaScript</span>
 Posted by Su 2013-10-27
 
   因为最近用到JavaScript，这里记录一下自己学习JS的笔记。平时都把笔记记录到EverNote上，内容完成后会整理成博文放到这里。其实学习一门新的编程语言，如果有其他语言做基础，学习起来真的很快，只要你多写点代码，多去调试，实践中再看一些经典的书，真的能很快学懂它。
@@ -42,6 +42,6 @@ Tags: `Blog` `2008`
   
   
 -------------     
-  [Back to Top](#top1)
+  [Back to Top](http://jimsush.github.io/index.html#top1)
 
 
