@@ -1,0 +1,43 @@
+9
+
+dir
+1884
+http://yotcshsvn:8000/svn/yuep/trunk/common-base/src/java/com/yuep/base/util
+http://yotcshsvn:8000/svn/yuep
+
+
+
+2011-09-26T07:14:48.562500Z
+1884
+sufeng
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a87baf9f-eedd-594f-bd08-65774b16395b
+
+encry
+dir
+
+cmd
+dir
+
+net
+dir
+
+format
+dir
+
+sys
+dir
+

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler
+END
+CommonSchedulerJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/yuep/!svn/ver/1669/trunk/common-base/src/java/com/yuep/base/scheduler/CommonSchedulerJob.java
+END
+DefaultSchedulerExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/DefaultSchedulerExecutor.java
+END
+SchedulerExecutorFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/yuep/!svn/ver/1664/trunk/common-base/src/java/com/yuep/base/scheduler/SchedulerExecutorFactory.java
+END
+SchedulerExecutorFactoryImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/SchedulerExecutorFactoryImpl.java
+END
+ImmediateSchedulerJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/yuep/!svn/ver/1664/trunk/common-base/src/java/com/yuep/base/scheduler/ImmediateSchedulerJob.java
+END
+SchedulerJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/SchedulerJob.java
+END
+SchedulerJobNamingEngine.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/yuep/!svn/ver/1664/trunk/common-base/src/java/com/yuep/base/scheduler/SchedulerJobNamingEngine.java
+END
+OneTimeSchedulerJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/yuep/!svn/ver/1669/trunk/common-base/src/java/com/yuep/base/scheduler/OneTimeSchedulerJob.java
+END
+ProxyJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/ProxyJob.java
+END
+SchException.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/SchException.java
+END
+AbstractSchedulerJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/AbstractSchedulerJob.java
+END
+SchedulerExecutor.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/scheduler/SchedulerExecutor.java
+END
+FixedIntervalSchedulerJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/yuep/!svn/ver/1703/trunk/common-base/src/java/com/yuep/base/scheduler/FixedIntervalSchedulerJob.java
+END

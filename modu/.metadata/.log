@@ -1,0 +1,135 @@
+!SESSION 2013-12-05 22:17:33.010 -----------------------------------------------
+eclipse.buildId=M20080903-2000
+java.version=1.7.0_17
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.equinox.p2.core 0 0 2013-12-05 22:17:34.549
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins/com.nomagic.magicdraw.eclipseintegrator
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:471)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:435)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.loadMetadataRepository(Activator.java:82)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.getMetadataRepository(DropinsRepositoryListener.java:171)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.added(DropinsRepositoryListener.java:62)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.processFile(DirectoryWatcher.java:200)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.scanDirectories(DirectoryWatcher.java:161)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.poll(DirectoryWatcher.java:108)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Activator.java:468)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Activator.java:157)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 0 1000 2013-12-05 22:17:34.550
+!MESSAGE No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins/com.nomagic.magicdraw.eclipseintegrator
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2013-12-05 22:17:34.560
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins/com.nomagic.magicdraw.eclipseintegrator.
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.fail(ArtifactRepositoryManager.java:253)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:427)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:402)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.loadArtifactRepository(Activator.java:117)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.getArtifactRepository(DropinsRepositoryListener.java:189)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.added(DropinsRepositoryListener.java:63)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.processFile(DirectoryWatcher.java:200)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.scanDirectories(DirectoryWatcher.java:161)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.poll(DirectoryWatcher.java:108)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Activator.java:468)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Activator.java:157)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1000 2013-12-05 22:17:34.560
+!MESSAGE No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins/com.nomagic.magicdraw.eclipseintegrator.
+
+!ENTRY org.eclipse.equinox.p2.core 0 0 2013-12-05 22:17:34.571
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:471)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:435)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.loadMetadataRepository(Activator.java:82)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.getMetadataRepository(DropinsRepositoryListener.java:171)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.added(DropinsRepositoryListener.java:62)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.processFile(DirectoryWatcher.java:200)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.scanDirectories(DirectoryWatcher.java:161)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.poll(DirectoryWatcher.java:108)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Activator.java:468)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Activator.java:157)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 0 1000 2013-12-05 22:17:34.572
+!MESSAGE No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2013-12-05 22:17:34.573
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins.
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.fail(ArtifactRepositoryManager.java:253)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:427)
+	at org.eclipse.equinox.internal.p2.artifact.repository.ArtifactRepositoryManager.loadRepository(ArtifactRepositoryManager.java:402)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.loadArtifactRepository(Activator.java:117)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.getArtifactRepository(DropinsRepositoryListener.java:189)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.DropinsRepositoryListener.added(DropinsRepositoryListener.java:63)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.processFile(DirectoryWatcher.java:200)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.scanDirectories(DirectoryWatcher.java:161)
+	at org.eclipse.equinox.internal.provisional.p2.directorywatcher.DirectoryWatcher.poll(DirectoryWatcher.java:108)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.watchDropins(Activator.java:468)
+	at org.eclipse.equinox.internal.p2.reconciler.dropins.Activator.start(Activator.java:157)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:355)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1074)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:616)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:508)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:299)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:489)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:211)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:321)
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 1000 2013-12-05 22:17:34.574
+!MESSAGE No repository found at file:/D:/magicdraw/MD_UML_150_sp1_no_install/plugins.
+
+!ENTRY edu.hawaii.ics.csdl.jupiter 1 0 2013-12-05 22:18:40.421
+!MESSAGE Jupiter Review Plugin is up.
+
+!ENTRY org.sf.easyexplore 1 4 2013-12-05 22:25:50.915
+!MESSAGE running: explorer.exe D:\projects\gittest\modu\common-base\lib
+

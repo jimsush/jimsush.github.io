@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/xml
+END
+XmlFileReader.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/yuep/!svn/ver/1665/trunk/common-base/src/java/com/yuep/base/xml/XmlFileReader.java
+END
+XmlParseUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/yuep/!svn/ver/1664/trunk/common-base/src/java/com/yuep/base/xml/XmlParseUtil.java
+END
+ArrayListItems.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/yuep/!svn/ver/1814/trunk/common-base/src/java/com/yuep/base/xml/ArrayListItems.java
+END
+XmlFileWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/yuep/!svn/ver/1664/trunk/common-base/src/java/com/yuep/base/xml/XmlFileWriter.java
+END
