@@ -133,3 +133,7 @@ org.eclipse.equinox.internal.provisional.p2.core.ProvisionException: No reposito
 !ENTRY org.sf.easyexplore 1 4 2013-12-05 22:25:50.915
 !MESSAGE running: explorer.exe D:\projects\gittest\modu\common-base\lib
 
+
+!ENTRY org.sf.easyexplore 1 4 2013-12-05 22:56:06.804
+!MESSAGE running: explorer.exe D:\projects\gittest\modu\common-base
+
