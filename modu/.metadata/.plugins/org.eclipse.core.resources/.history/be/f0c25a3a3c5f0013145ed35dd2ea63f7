@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package net.sf.modu.mindex;
+
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+/**
+ * @author tong
+ *
+ */
+public class RangeIndex {
+	private ReadWriteLock rwlock=new ReentrantReadWriteLock();
+	private TreeMap<Object, Set<Object>> valuesOfIndex=new TreeMap<Object, Set<Object>>();
+	
+	
+}

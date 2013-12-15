@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package net.sf.modu.mindex;
+
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+/**
+ * @author tong
+ *
+ */
+public class RangeIndex {
+
+	private ReadWriteLock rwlock=new ReentrantReadWriteLock();
+	
+}

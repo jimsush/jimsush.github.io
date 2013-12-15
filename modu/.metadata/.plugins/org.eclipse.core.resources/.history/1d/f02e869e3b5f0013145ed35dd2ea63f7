@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package net.sf.modu.mindex;
+
+/**
+ * @author tong
+ *
+ */
+public class RangeIndex {
+
+}
