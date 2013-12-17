@@ -1,5 +1,0 @@
-1, copy file to d:\projects\gittest
-2, create new file
-3, right click->add all files
-4, commit via git gui
-5, upload via git gui-----need to input your password
