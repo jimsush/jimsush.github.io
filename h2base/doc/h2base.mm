@@ -1,0 +1,9 @@
+<map version="0.9.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1387204482081" ID="ID_675356088" MODIFIED="1387803268619" TEXT="h2">
+<node CREATED="1387803275523" ID="ID_1665322093" MODIFIED="1387803277728" POSITION="right" TEXT="sql"/>
+<node CREATED="1387803278091" ID="ID_1537811235" MODIFIED="1387803280730" POSITION="right" TEXT="index"/>
+<node CREATED="1387803283708" ID="ID_1745412849" MODIFIED="1387803286910" POSITION="right" TEXT="transaction"/>
+<node CREATED="1387803289310" ID="ID_144758345" MODIFIED="1387803290638" POSITION="right" TEXT="hint"/>
+</node>
+</map>
