@@ -41,3 +41,8 @@ in-memory/embedded mode下，即使没启动任何tcp等server，依然是可以
 * CommandInterface, CommandContainer.executeQuery,Command.query() -> Query.query(),queryWithoutCache，TableFilter.startQuery(),Select.queryFlat
 
 
+### Index
+* TreeIndex  in-memory AVL tree
+* HashIndex   
+* PageBTreeIndex  most common type of index
+* 
