@@ -31,3 +31,13 @@ org.h2.server.web.WebServlet
 in-memory/embedded mode下，即使没启动任何tcp等server，依然是可以进行数据库操作的，但不能在多个进程间使用同一个数据库jdbc连接字符串。    
 每个embedded mode数据库，都会自动创建yourdb.h2.db和yourdb.trace.db两个文件。这里可以保存数据库的schema和持久化数据，通过file lock防止在embedded mode下多进程都打开同一数据库。
 
+## SQL Parse & Query
+* check conn,statement closed???
+* Translate
+* Session sql cache
+* Parse 一个一个字符解析成token的initialize,read,parsePrepared,parseSelect,parseSelectUnion,parseSelectSub,readIf读取下一个token
+* Command 里面包含了Select,Query等Prepared
+* Select里面做map column处理,
+* CommandInterface, CommandContainer.executeQuery,Command.query() -> Query.query(),queryWithoutCache，TableFilter.startQuery(),Select.queryFlat
+
+
