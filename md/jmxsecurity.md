@@ -1,19 +1,17 @@
-JVM parameter
-
+* JVM parameter 
 -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.ssl=false -Djava.security.auth.login.config=jaas.conf -Dcom.sun.management.jmxremote.login.config=Sample -Dcom.sun.management.jmxremote.access.file=access.txt
 
-jaas.conf
-Sample{
+* jaas.conf 
+`Sample{
     net.sf.SSOLogin required;
-};
+};`
 
-access.txt
-test1 readwrite
+* access.txt 
+`test1 readwrite`
 
 
-SSOLogin.java
-<code>
-import java.security.Principal;
+* SSOLogin.java 
+`import java.security.Principal;
 import java.util.Map;
 import java.util.Properties;
 
@@ -93,6 +91,5 @@ public class SSOLogin implements LoginModule{
 		return true;
 	}
 
-}
-</code>
+}`
 
