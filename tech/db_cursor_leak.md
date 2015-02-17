@@ -5,3 +5,6 @@
 
 *validation:
  ** added a counter to track resultset usage.
+ 
+ 
+ sp output出来的cursor必须关闭. application很容易忘记这点. 
