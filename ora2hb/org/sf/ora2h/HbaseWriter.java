@@ -35,7 +35,7 @@ public class HbaseWriter extends Thread{
 			}
 			if(data==null || data.size()==0)
 				continue;
-			
+			System.out.println("write "+data.size());
 			for(Entry entry : data){
 				Utils.write2Hbase(entry);
 			}

@@ -28,4 +28,8 @@ public class Payload {
 		this.content = content;
 	}
 	
+	public String toString(){
+		return dspi+" "+content;
+	}
+	
 }

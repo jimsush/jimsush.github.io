@@ -49,7 +49,8 @@ public class DBQueryExecutor {
 						break;
 					}
 					
-					if(i%9==1){
+					if(i%9==1)
+					{
 						VarMetaData[] vars = MockData.genVarMetaData(i);
 						if(vars!=null && vars.length>0){
 							for(VarMetaData var : vars){
@@ -64,6 +65,11 @@ public class DBQueryExecutor {
 					}
 				}
 				System.out.println("varmetaQ len:"+varmetaQ.size());
+//				try{
+//					Thread.sleep(100000);
+//				}catch(Exception ex){
+//					ex.printStackTrace();
+//				}
 			}	
 		};
 		
@@ -76,7 +82,8 @@ public class DBQueryExecutor {
 						break;
 					}
 					
-					if(i%7==1){
+					if(i%7==1)
+					{
 						Payload[] payloads = MockData.genPayload(i);
 						if(payloads!=null && payloads.length>0){
 							for(Payload payload : payloads){
@@ -91,6 +98,11 @@ public class DBQueryExecutor {
 					}
 				}
 				System.out.println("payloadQ len:"+payloadQ.size());
+//				try{
+//					Thread.sleep(100000);
+//				}catch(Exception ex){
+//					ex.printStackTrace();
+//				}
 			}	
 		};
 		

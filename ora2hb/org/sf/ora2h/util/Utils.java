@@ -14,9 +14,9 @@ public class Utils {
 	public static long MILLSEC_DELAY=60000L; //60sec
 	//public static int LEN_DELAY_Q=100;
 	
-	public static int NUM_META=10000000; //10 million meta
-	public static int NUM_VAR_META=50000;
-	public static int NUM_PAYLOAD=40000;
+	public static int NUM_META=100000; //10 million meta
+	public static int NUM_VAR_META=5000;
+	public static int NUM_PAYLOAD=4000;
 	
 
 	public static byte[] decodeBase64(String base64Text){
@@ -29,7 +29,7 @@ public class Utils {
 //		}catch(Exception ex){
 //			ex.printStackTrace();
 //		}
-		if(entry.getPayload()!=null || entry.getVar()!=null)
+	//	if(entry.getPayload()!=null || entry.getVar()!=null)
 			System.out.println(entry);
 	}
 	

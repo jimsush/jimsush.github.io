@@ -66,7 +66,7 @@ public class Dispatcher extends Thread{
 				break;
 			}
 			try{
-				Entry entry=pick1Entry();
+				Entry entry=getNextEntry();
 				entryQueue.add(entry);
 				
 				boolean submitable=canSubmit();
@@ -84,20 +84,25 @@ public class Dispatcher extends Thread{
 		}
 	}
 	
-	private Entry pick1Entry() throws Exception{
+	private Entry getNextEntry() throws Exception{
 		MetaData meta = metaQ.take();
 		
 		List<VarMetaData> varmetaList=new ArrayList<VarMetaData>(); //var meta data with same dspi
-		pick1FullVarMeta(meta.getDspi(), varmetaList);
+		getNextVarMeta(meta.getDspi(), varmetaList);
 		
 		List<Payload> payloadList=new ArrayList<Payload>(); //payload with same dspi
-		pick1FullPayload(meta.getDspi(), payloadList);
+		getNextPayload(meta.getDspi(), payloadList);
 		
 		Entry entry=new Entry(meta, Utils.combineMultiVarMeta(varmetaList), Utils.combineMultiPayload(payloadList));
+		if(entry.getDspi()<20)
+			System.out.println("pick:"+entry);
 		return entry;
 	}
 	
-	private void pick1FullVarMeta(long dspi, List<VarMetaData> varmetaList) throws Exception{
+	private void getNextVarMeta(long dspi, List<VarMetaData> varmetaList) throws Exception{
+		if(lastVarMeta!=null && dspi < lastVarMeta.getDspi()) // 1,2,3,4,5,6  var: 1,2, 5,6
+			return;
+		
 		if(!varmetaQIsEnd()){
 			while(true){
 				if(!varmetaQIsEnd()){
@@ -125,7 +130,10 @@ public class Dispatcher extends Thread{
 		}
 	}
 	
-	private void pick1FullPayload(long dspi, List<Payload> payloadList) throws Exception{
+	private void getNextPayload(long dspi, List<Payload> payloadList) throws Exception{
+		if(lastPayload!=null && dspi < lastPayload.getDspi())
+			return;
+		
 		if(!payloadQIsEnd()){
 			while(true){
 				if(!payloadQIsEnd()){
@@ -170,7 +178,7 @@ public class Dispatcher extends Thread{
 	private boolean canSubmit(){
 		boolean submitable=false;
 		long now1=System.currentTimeMillis();
-		if(entryQueue.size()>Utils.BATCH_SIZE){
+		if(entryQueue.size()>=Utils.BATCH_SIZE){
 			submitable=true;
 		}else{
 			long timeGap=now1-lastSubmitTime;
@@ -187,7 +195,6 @@ public class Dispatcher extends Thread{
 		for(int i=0; i<Utils.NUM_WRITE_THREAD; i++){
 			writers[i].pushData(entriesForWriter[i]);
 		}
-		
 	}
 	
 	private boolean varmetaQIsEnd(){

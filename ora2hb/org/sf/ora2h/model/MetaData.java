@@ -28,4 +28,8 @@ public class MetaData {
 		this.field1 = field1;
 	}
 	
+	public String toString(){
+		return dspi+" "+field1;
+	}
+	
 }
