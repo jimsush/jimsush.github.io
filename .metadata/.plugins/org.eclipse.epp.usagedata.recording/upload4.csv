@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.wst.ws.service.policy.ui,1.0.2.v200809031518,org.eclipse.wst.ws.service.policy.ui,1389492752642
+started,bundle,org.eclipse.wst.xml.core,1.1.305.v200809120354,org.eclipse.wst.xml.core,1389492752642
+started,bundle,org.eclipse.mylyn.commons.net,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.commons.net,1389492752642
+started,bundle,org.eclipse.mylyn.commons.ui,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.commons.ui,1389492752658
+started,bundle,org.eclipse.mylyn.compatibility,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.compatibility,1389492752658
+started,bundle,org.eclipse.mylyn.context.core,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.context.core,1389492752658
+started,bundle,org.eclipse.mylyn.context.ui,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.context.ui,1389492752658
+started,bundle,org.eclipse.mylyn.monitor.ui,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.monitor.ui,1389492752658
+started,bundle,org.eclipse.mylyn.tasks.ui,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.tasks.ui,1389492752658
+started,bundle,org.eclipse.mylyn.team.ui,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.team.ui,1389492752658
+started,bundle,org.eclipse.mylyn.jira.core,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.jira.core,1389492752658
+started,bundle,org.eclipse.mylyn.jira.ui,3.0.2.v20080918-1100-e3x,org.eclipse.mylyn.jira.ui,1389492752658
+started,bundle,org.tigris.subversion.clientadapter,1.5.1,org.tigris.subversion.clientadapter,1389492752658
+started,bundle,org.tigris.subversion.subclipse.core,1.4.3,org.tigris.subversion.subclipse.core,1389492752658
+started,bundle,org.tigris.subversion.subclipse.mylyn,3.0.0,org.tigris.subversion.subclipse.mylyn,1389492752658
+started,bundle,org.tigris.subversion.subclipse.ui,1.4.4,org.tigris.subversion.subclipse.ui,1389492752658
+started,bundle,edu.hawaii.ics.csdl.jupiter,3.4.0,edu.hawaii.ics.csdl.jupiter,1389492752658
+deactivated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1389492753126
+activated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1389492926567
+deactivated,workbench,org.eclipse.ui.workbench,3.4.1.M20080827-0800a,,1389492934008
+no handler,command,org.eclipse.ui,3.4.1.M20080903-2000,org.eclipse.ui.edit.paste,1389492942370
+executed,command,org.eclipse.ui,3.4.1.M20080903-2000,org.eclipse.ui.edit.paste,1389492944554
+started,bundle,org.eclipse.debug.core,3.4.0.v20080612,org.eclipse.debug.core,1389492956612
+started,bundle,org.eclipse.jdt.launching,3.4.1.v20080729_r341,org.eclipse.jdt.launching,1389492956659
+started,bundle,org.eclipse.jdt.junit,3.4.0.v20080603-2000,org.eclipse.jdt.junit,1389492957143

@@ -1,0 +1,5 @@
+package net.sf.h2.test;
+
+public class QueryTest {
+
+}
