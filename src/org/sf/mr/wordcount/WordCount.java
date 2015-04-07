@@ -33,7 +33,7 @@ public class WordCount {
         while (tokenizer.hasMoreTokens()) {  
           word.set(tokenizer.nextToken());  
           output.collect(word, one);  
-        }  
+        } 
       }  
     }
 	
