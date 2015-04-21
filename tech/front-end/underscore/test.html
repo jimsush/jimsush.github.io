@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script  type="text/javascript" src="underscore.js"></script>
+	</head>
+	<body>
+		
+		<br>reference from below link:
+		<br><a href="http://www.css88.com/doc/underscore/#object">http://www.css88.com/doc/underscore/#object</a>
+		
+		<br>
+		
+		<script type="text/javascript">
+			// case 1: simple string map
+			var out1=function(item){
+				  document.write("<br>"+item+" ");
+			};
+			var array1=['NY','LN'];//new Array();
+			var array2=['DERIV','GLOBAL'];//new Array();
+			var array3=array1.concat(array2);
+			document.write("<br>test "+array3[0]+array3[3]);
+			
+			var deriv=_.map(array1,function(loc){ return loc+'_'+array2[0]});
+			var global=_.map(array1,function(loc){ return loc+'_'+array2[1]});
+			var allBrokers=deriv.concat(global);
+			_.each(allBrokers,out1);
+			console.log(allBrokers);
+			
+			// case 2: object map
+			var outMap1=function(obj){
+				  document.write("<br>"+obj.text+" "+obj.value);
+			};
+			
+			var mapArray1=[{'text':'New York','value':'NY'},{'text':'London','value':'LN'}]; // Object array[]
+			
+			var derivMap=_.map(mapArray1,function(obj){ return {'text':obj.text+array2[0],'value':obj.value+array2[0]}});
+			console.log(derivMap);
+			
+			var globalMap=_.map(mapArray1,function(obj){ return {'text':obj.text+array2[1],'value':obj.value+array2[1]}});
+			console.log(globalMap);
+			
+			var allMapBrokers=derivMap.concat(globalMap);
+			_.each(allMapBrokers,outMap1);
+			
+			
+			// case 3: object
+			var student=_.object(['name','age','class'],['Ren',8,3]);
+			console.log(student);
+			
+			
+    </script>
+	</body>
+</html>

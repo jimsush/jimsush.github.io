@@ -1,0 +1,48 @@
+package net.sf.h2.test;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.junit.Test;
+
+public class QueryTest {
+	@Test
+	public void testQueryInMemoryDB() {
+		try {
+			Class.forName("org.h2.Driver");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		try {
+			String sourceURL = "jdbc:h2:mem:testmemdb";
+			String user = "sa";
+			String key = "";
+			Connection conn = DriverManager.getConnection(sourceURL, user, key);
+
+			Statement stmt = conn.createStatement();
+			stmt
+					.execute("CREATE TABLE usertable(name VARCHAR(100),sex VARCHAR(10),age int)");
+			stmt.execute("CREATE index idxname on usertable(name)");
+			stmt.execute("CREATE index idxage on usertable(age)");
+
+			stmt
+					.executeUpdate("INSERT INTO usertable VALUES('admin','male',30)");
+
+			ResultSet rset = stmt
+					.executeQuery("select * from usertable where name='admin' and age>25");
+			while (rset.next()) {
+				System.out.println(rset.getString("name"));
+			}
+			rset.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException sqle) {
+			System.err.println(sqle);
+		}
+
+	}
+}

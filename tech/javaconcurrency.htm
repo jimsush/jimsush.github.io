@@ -1,0 +1,52 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title></title>
+<style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:"C";    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><h1><code>Su的记事本</code></h1>
+<h1><span id="top1">Java并发读写</span></h1>
+<p>Java并发读写处理并不容易，很多情况下，高并发，高性能与数据的一致性难以兼顾，在不同的场景下需要根据实际情况进行取舍。比如前不久一位同事需要在内存中维护一棵大的配置树（类似于map），这棵配置树读取非常频繁，但需求也很苛刻，需要在更新的时候快速处理完，并尽可能少地影响频繁读取操作的效率。
+
+</p>
+<p>其实这是一个经常遇到的问题，就是数据大，同时又要求读写都快，而且能保证数据的一致性，这看起来似乎是不可能的。但如果能用好<code>multiple mutex</code>和<code>lock free</code>，似乎也能解决这个问题。本文将把一些常见的并发读写场景的处理策略分析一下。（里面有些也许不完全正确，汗！）
+
+</p>
+<h2>Read write lock 读写锁</h2>
+<p>多个线程同时读互不影响，但读会阻塞写，写会阻塞所有读与写。适合并发读多的场景。如<code>ReentrantReadWriteLock</code>。
+
+</p>
+<h2>Reentrant lock 可重入锁</h2>
+<p>最近面试的时候，很多候选人不清楚什么是可重入锁，听过这个概念的人都很少。最简单的理解就是，在同一个线程里，对同一个锁，可以多次获取到这个锁，即使这个锁已经被锁住了，同一线程内可以重复获取到这个锁，不会阻塞住，从实现角度上来说，就是通过ThreadLocal中保存lock的信息。如<code>ReentrantLock</code>。
+
+</p>
+<h2>Copy on write 写时拷贝</h2>
+<p>COW适合读多写少的场景。与读写锁的区别在于读无锁，写的时候也不会阻塞读操作。基本原理就是写的时候，先加锁（只阻塞写操作），并拷贝一份出来，然后在拷贝上进行修改，最后把数据指向这份拷贝。而读的时候不加锁，直接读取原数据。但COW也有问题，一是写操作的成本很大，每次都要拷贝一份出来，其次是一致性问题，读操作可能读到的是旧数据，这就需要看实际的需求了，如果不在乎旧数据，那也没有问题。java本身的<code>CopyOnWriteArrayList</code>, <code>CopyOnWriteArraySet</code>都是这样实现的。
+
+</p>
+<h2>MVCC 并发多版本控制</h2>
+<p>它类似copy on write,读多写少，同时要求在同一事务中，数据要保持一致。读时只读版本低于或等于自己事务的版本，更新时先拷贝一份，并增加一个版本，这样就允许并发写，而且没有锁（至少没有粒度大的锁）。但mvcc开销大，而且需要后台线程去merge那些旧的版本。一般在事务处理中会用到mvcc
+
+</p>
+<h2>Multi mutex 多把锁</h2>
+<p>典型的就是<code>ConcurrentHashMap</code>，每个bucket都有一把锁，通过减少锁的粒度减低竞争。相当于一种分而治之的思想，整体效率还是挺高的，而且实现要比单纯的<code>lock free</code>算法简单。
+
+</p>
+<h2>Lock free 无锁</h2>
+<p>无锁算法很难实现地完全正确，而且不好验证。通过<code>violate/CAS/spin lock</code>可以减少cpu上下文切换，能保持<code>cache line</code>，但cpu会高企，有时等不到锁还是会阻塞并切换上下文。最主要的是没几个人能写出还算正确的lock free的代码，一个<code>CLH queue</code>就没多少人理解，所以这个基本上也就是用现成的，自己实现的现实意义不大，还不如用其他方式来代替。
+
+</p>
+<h2>Serializable 串行化</h2>
+<p>如果对数据有强一致性，就只能牺牲性能，完全用<code>lock</code>或者<code>synchronized</code>来阻塞其他操作。实际场景中如果遇到这样需求，就只能放弃性能了，而且伸缩性也大大折扣。
+
+</p>
+<p>总之，多线程并发处理是一个比较难处理的问题，不同的场景需要使用不同的解决方案，高并发，高性能与数据的强一致性无法兼顾，就就和<code>CAP</code>原则类似，对于不是天才的我们，需要有所取舍。
+
+
+</p>
+<p>Tags: <code>Java</code> <code>Concurrency</code>
+
+</p>
+<hr>
+<p>  <a href="http://jimsush.github.io/index.html">Back to home</a>
+</p>
+
+</body></html>
