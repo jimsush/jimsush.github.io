@@ -10,6 +10,8 @@ rollup when data importing/streaming
 data ingestion is very fast
 
 design for rt MOLAP analytics but don't support standard sql(imply plysql)
+Druid has limitation on table join. Kylin support star schema
+Druid has its own computation and storage cluster. For those who already running Hadoop &amp; HBase, Kylin is a small addition to deployment. Druid always require its own cluster be deployed
 
 Segment: inverted index, bitmap index
 
