@@ -39,3 +39,44 @@ sudo passwd (修改root password)
 二、MapReduce
     1.JobTracker 默认端口   50030
     2.TaskTracker 默认端口   50060
+
+
+sudo mysql -u root -p 
+grant all privileges on *.* to 'root'@'localhost' identified by 'root';
+mysql -u root -p
+
+sudo service mysql start
+
+insert into mysql.user(Host,User,authentication_string) values("localhost","hive",password("hive"));
+create database hive;
+grant all on hive.* to hive@'%'  identified by 'hive';
+grant all on hive.* to hive@'localhost'  identified by 'hive';
+flush privileges;
+
+
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://localhost:3306/hive?characterEncoding=UTF-8</value>
+    </property>
+
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.jdbc.Driver</value>
+    </property>
+
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>root</value>
+    </property>
+
+
+
+export HIVE_HOME=/home/sufeng/hive
+export PATH=$HIVE_HOME/bin:$PATH
+
+
