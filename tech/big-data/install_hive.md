@@ -5,18 +5,20 @@ network: NAT, virtual network editor, please note firewall and don't allow firew
 ===============
 start hadoop with 'hduser'
 
-第一次启动hadoop服务之前，必须执行格式化namenode
+You have to format namenode when you run namenode at first time:
+ $ hdfs namenode -format
 
-$ hdfs namenode -format
-
-namenode:  /home/sufeng/namenode/
-datanode: /home/sufeng/datanode/
+namenode:  /home/tong/namenode/
+datanode: /home/tong/datanode/
 
 /usr/local/hadoop/bin
 
+../sbin/hadoop-daemon.sh start namenode
+datanode
 ../sbin/start-dfs.sh
-start-yarn.sh
+../sbin/start-yarn.sh (resourcemanager, nodemanager)
 jps
+
 
 ~/.bashrc
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre
@@ -29,16 +31,16 @@ sudo su hduser
 /usr/local/hadoop/sbin/start-dfs.sh
 /usr/local/hadoop/sbin/start-yarn.sh
 
-sudo passwd (修改root password)
+sudo passwd (change root password)
 
-一、HDFS
-    1.NameNode 默认端口   50070   http://192.168.88.129:50070
-    2.SecondNameNode 默认端口   50090
-    3.TaskNode 默认端口   50075
+1. HDFS
+    1.NameNode  50070   http://192.168.88.129:50070
+    2.SecondNameNode   50090
+    3.TaskNode 50075
 
-二、MapReduce
-    1.JobTracker 默认端口   50030
-    2.TaskTracker 默认端口   50060
+2. MapReduce
+    1.JobTracker   50030
+    2.TaskTracker  50060
 
 
 sudo mysql -u root -p 
@@ -66,17 +68,23 @@ flush privileges;
 
     <property>
         <name>javax.jdo.option.ConnectionUserName</name>
-        <value>root</value>
+        <value>hive</value>
     </property>
 
     <property>
         <name>javax.jdo.option.ConnectionPassword</name>
-        <value>root</value>
+        <value>hive</value>
     </property>
 
 
-
-export HIVE_HOME=/home/sufeng/hive
+export HIVE_HOME=/home/tong/hive
 export PATH=$HIVE_HOME/bin:$PATH
 
+sudo hduser
+hive --service metastore
+hive
+$use default;
+$create table test(id int, name string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE;
+$load data local inpath '/home/tong/files' into table test;
+$select * from test;
 
