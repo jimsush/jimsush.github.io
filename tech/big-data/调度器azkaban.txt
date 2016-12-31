@@ -1,4 +1,18 @@
 1，安装azkaban，运行sample，原理剖析
+https://azkaban.github.io/
+http://azkaban.github.io/azkaban/docs/latest/
+
+gradle
+
+1. 关系数据库（目前仅支持mysql）
+2.web管理服务器－AzkabanWebServer
+3.执行服务器－AzkabanExecutorServer
+
+运行方式:
+solo server mode：最简单的模式，数据库内置的H2数据库，管理服务器和执行服务器都在一个进程中运行，任务量不大项目可以采用此模式。
+two server mode：数据库为mysql，管理服务器和执行服务器在不同进程，这种模式下，管理服务器和执行服务器互不影响
+multiple executor mode：该模式下，执行服务器和管理服务器在不同主机上，且执行服务器可以有多个。
+
 
 2, 代码结构
 common
@@ -16,14 +30,15 @@ hadoop security plugin
 
 
 3，概念
-projects: save to files,包含多个executors, 有白名单等
-Flow状态, 保存所有的nodes和edges,一个flow可以有多个start nodes和多个end nodes, flow里面可以embed subflows, project里面有flows
+projects: save to files,包含多个executors, 有白名单等, 包含多个flow
+Flow状态, 保存所有的nodes和edges,一个flow可以有多个start nodes和多个end nodes, flow里面可以embedded subflows(innerflow), project里面有flows
 Executor, execution(id)
+Execution:  job node执行的实例,保存到文件中
 FlowWatcher: 管理finite status machine
 FlowRunner -> JobRunner -> submit to executor service & add to active job runner queue
 JobRunner is a Runnable, -> Job.run();
 JobRunner的pipeline,有多个jobs;
-Job 真正做事情的job，有Run shell process, python, ruby, script, noop, java process等JobType类型的job;
+Job 真正做事情的job，有Run shell process, python, ruby, script, noop, java process等JobType类型的job; 可定义dependencies
 Pipeline 类似1个正在执行node的queue;
 Edge: 边,类似于link, source/target node;
 Job Callback: 
@@ -53,12 +68,14 @@ FlowRunner控制所有的job执行，提交job到executor里面s
 
 execution一次执行，类似job的实例
 
-skip/failure/retry/delay的策略
+skip/failure/retry/delay/notification/SLA的策略option
+SLA如果没在规定时间内执行结束，需要kill或send notification emails.
 
 多个DAG flow间如何做资源分配与隔离，优先级priority queue等，不同的调度策略?
 是在整个root的层面来分priority queue吗?
 
 分布式调度还是单点调度？如何实现高可用调度
+re: 分布式executors
 
 status有:
   READY(10),===> 进行DAG的依赖处理，但并不运行，而是把状态改为Running
@@ -76,9 +93,18 @@ status有:
   CANCELLED(130);
 -----------------------------
 
+操作：
+1，创建project
+2，定义job文件
+3, 上传project配置(zip,job)
+4, 能看到flow view(DAG), timelined executions,还可以直接trigger a job, view history executions, detailed executing executions, schedule flow(next 10 scheduled executions)
+
+---------------------------
+
+
 关键点：
 1，dag数据结构
 2，状态的转换
 3，快速的调度
-4，管理功能jmx,web,metrics,log
+4，管理功能jmx,web,metrics,log(web view)
 5，插件设计
