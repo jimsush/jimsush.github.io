@@ -1,0 +1,84 @@
+1，安装azkaban，运行sample，原理剖析
+
+2, 代码结构
+common
+exec-server
+migration
+hadoop
+solo-server
+web-server
+sql
+hadoop security plugin
+
+依赖
+
+系统架构
+
+
+3，概念
+projects: save to files,包含多个executors, 有白名单等
+Flow状态, 保存所有的nodes和edges,一个flow可以有多个start nodes和多个end nodes, flow里面可以embed subflows, project里面有flows
+Executor, execution(id)
+FlowWatcher: 管理finite status machine
+FlowRunner -> JobRunner -> submit to executor service & add to active job runner queue
+JobRunner is a Runnable, -> Job.run();
+JobRunner的pipeline,有多个jobs;
+Job 真正做事情的job，有Run shell process, python, ruby, script, noop, java process等JobType类型的job;
+Pipeline 类似1个正在执行node的queue;
+Edge: 边,类似于link, source/target node;
+Job Callback: 
+
+
+loader: DAO
+exeception hierachy
+
+thread的管理, threadlocal
+网络通信框架
+EventHandler 事件驱动, DAG
+
+ExecutableNode 执行实例dag的节点，有1个parent flow，多个input nodes(dependency),如果是ready则会把后继节点也都runReadyJob，直到DAG结束.
+
+ExecutableFlowBase
+
+jmx/annotation
+
+EventData 事件驱动来更新ExecutableNode的status
+
+executor class是插件式设计，IOC/DI reflection
+执行器：容器，获取cpu，内存资源，线程，维护执行状态和队列，对queue中的job进行执行，读取job的定义信息，读取执行的当前上下文与参数，回传结果
+
+job: 要做事情的类
+
+FlowRunner控制所有的job执行，提交job到executor里面s
+
+execution一次执行，类似job的实例
+
+skip/failure/retry/delay的策略
+
+多个DAG flow间如何做资源分配与隔离，优先级priority queue等，不同的调度策略?
+是在整个root的层面来分priority queue吗?
+
+分布式调度还是单点调度？如何实现高可用调度
+
+status有:
+  READY(10),===> 进行DAG的依赖处理，但并不运行，而是把状态改为Running
+  PREPARING(20),
+  RUNNING(30), ===> runExecutableNode 把job提交到thread pool中run
+  PAUSED(40),
+  SUCCEEDED(50),
+  KILLED(60),
+  FAILED(70),
+  FAILED_FINISHING(80),
+  SKIPPED(90),
+  DISABLED(100),
+  QUEUED(110),
+  FAILED_SUCCEEDED(120),
+  CANCELLED(130);
+-----------------------------
+
+关键点：
+1，dag数据结构
+2，状态的转换
+3，快速的调度
+4，管理功能jmx,web,metrics,log
+5，插件设计
