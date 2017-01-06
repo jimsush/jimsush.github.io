@@ -1,4 +1,4 @@
-package net.sf.profiler.sf;
+package net.sf.profiler.server;
 
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
