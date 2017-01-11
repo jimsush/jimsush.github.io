@@ -39,6 +39,11 @@ public class TimerCount {
 	private static long costThreshold=1;
 	
 	static {
+		String start = System.getProperty("start");
+		if("true".equalsIgnoreCase(start)){
+			startStatus=true;
+		}
+		
 		// open logger file
 		logger=new Out2File();
 		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmSS");
@@ -113,9 +118,6 @@ public class TimerCount {
 	 */
 	public static void start(String invocation){
 		StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-		if(invocation.equals("net/sf/somep/ClassA.publish")){
-			
-		}
 		boolean isFirstLayer=false;
 		for(String topMethod: topMethods){
 			if(invocation.endsWith(topMethod)){
@@ -161,6 +163,7 @@ public class TimerCount {
 	 * <p>if execution throw exception, it is not consider now
 	 * @param invocation name of class, method
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void stop(String invocation){
 		Integer number = layer.get();
 		if(number==null)

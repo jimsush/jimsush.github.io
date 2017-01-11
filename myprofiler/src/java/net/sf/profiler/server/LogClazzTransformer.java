@@ -44,6 +44,10 @@ public class LogClazzTransformer implements ClassFileTransformer {
             return classfileBuffer;
         }	
 		
+		if(className.startsWith("net/sf/profiler/")){ //ignore self
+            return classfileBuffer;
+        }	
+		
 		// if not match rule,then not modify the byte codes
 		if(classMatcher!=null){
 			if(!classMatcher.match(className))

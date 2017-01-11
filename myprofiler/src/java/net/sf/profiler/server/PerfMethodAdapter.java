@@ -25,7 +25,7 @@ public class PerfMethodAdapter extends MethodAdapter {
 
 	public void visitCode() {
 		// if enter method, then call TimerCount.start() firstly
-		this.visitLdcInsn(_className+"."+_methodName); //param1
+		this.visitLdcInsn(_className+"."+_methodName); //param1²ÎÊý
 		this.visitMethodInsn(INVOKESTATIC, 
 				timerCountClassPath, // "net/sf/profiler/server/TimerCount", 
 				"start", 

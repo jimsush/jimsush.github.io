@@ -5,7 +5,7 @@ import java.lang.instrument.Instrumentation;
 /**
  * instrument agent, dynamic modify byte code at runtime
  * java -javaagent:agent1.jar 
- * Premain-Class: net.sf.profiler.sf.LogAgent
+ * Premain-Class: net.sf.profiler.server.LogAgent
  *
  */
 public class LogAgent {
