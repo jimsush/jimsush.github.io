@@ -3,6 +3,7 @@ package net.sf.scheduler;
 public class ActionScheduleCounter {
 	
 	private String scheduleKey;
+	private String sid;
 	
 	private long createTime;
 	private long expectedScheduleTime;
@@ -18,6 +19,10 @@ public class ActionScheduleCounter {
 	public ActionScheduleCounter(String scheduleKey,long createTime){
 		this(scheduleKey);
 		this.createTime=createTime;
+	}
+	
+	public void setSid(String sid){
+		this.sid=sid;
 	}
 	
 	public String getScheduleKey() {
@@ -53,9 +58,9 @@ public class ActionScheduleCounter {
 	}
 	public String getReadyOutputInfo(){
 		if(this.initedTime<=0){
-			return "schedule's status changed: "+scheduleKey+" to READY";
+			return "schedule's status changed: "+scheduleKey+" "+sid+" to READY";
 		}else{
-			return "schedule's status changed: "+scheduleKey+" to READY,"
+			return "schedule's status changed: "+scheduleKey+" "+sid+" to READY,"
 				+" spent "+(this.readyTime-this.initedTime)+" ms on waiting pre action schedules";
 		}
 	}
@@ -70,9 +75,9 @@ public class ActionScheduleCounter {
 
 	public String getRunningOutputInfo(){
 		if(this.expectedScheduleTime<=0){
-			return "schedule's status changed: "+scheduleKey+" to RUNNING";
+			return "schedule's status changed: "+scheduleKey+" "+sid+" to RUNNING";
 		}else{
-			return "schedule's status changed: "+scheduleKey+" to RUNNING,"
+			return "schedule's status changed: "+scheduleKey+" "+sid+" to RUNNING,"
 				+" spent "+(this.runningTime-this.expectedScheduleTime)+" ms on waiting scheduling";
 		}
 	}
@@ -86,7 +91,7 @@ public class ActionScheduleCounter {
 	
 	public String getCompleteOutputInfo(){
 		StringBuilder sb=new StringBuilder();
-		sb.append("schedule's status changed: "+scheduleKey+" to DONE");
+		sb.append("schedule's status changed: "+scheduleKey+" "+sid+" to DONE");
 		if(this.initedTime>0 && this.readyTime>0){
 			sb.append(", ").append(this.readyTime-this.initedTime).append(" ms on waiting pre action schedules");
 		}
