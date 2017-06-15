@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta charset="gbk">
+
+<style type="text/css"> 
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+ }
+ th, td
+ {
+    border: 1px solid #b5d6e6;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    height: 20px;
+ }
+ th
+ {
+    background-color: Gray;
+ }   
+ </style>
+
+<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+
+<script type="text/javascript">
+var curPageNo=0;
+function load(){
+	curPageNo=0;
+}
+function search(){
+	$("#resultTb").append("<tr style='padding: 20px;'><td>hello</td><td>hello</td></tr>");
+}
+
+function more(){
+	if(curPageNo>=2){
+		$("#moreBtn").text('已到底线');
+	}else{
+	    curPageNo++;
+	    // console.log(curPageNo);
+	    $("#resultTb").append("<tr style='padding: 20px; text-align:center'><td>more hello</td><td>hello</td></tr>");
+	}
+}
+
+</script>
+</head>
+
+<body onload="load()">
+
+<p>hahha黑色
+<p>白色
+
+<div style="margin:20px;">
+<div>
+<input type="text" id="keyword" name="keyword">
+<button type="button" id="searchBtn" name="searchBtn" onclick="search()">搜索</button>
+</div>
+<br>
+
+<div id="resultDiv">
+
+<table id="resultTb" border="1" style="width:200px;"></table>
+
+</div>
+
+<br>
+<button type="button" id="moreBtn" name="moreBtn" onclick="more()">more>></button>
+
+</div>
+
+</body>
+
+</html>
